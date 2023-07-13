@@ -175,7 +175,7 @@ public class MainWrapper {
     //참고. 문자열로 변환하는 메소드가 있다.
     String str6 = String.valueOf(100);    //잘 안 쓸 뿐 있다.
     
-    System.out.println(str6);
+    System.out.println();
     
   }
   
