@@ -81,7 +81,7 @@ public class MainWrapper {
     System.out.println(y);  // 11
     
   } 
-    
+     
   // ex04 메소드 정의
   public static void ex04() {
     
@@ -119,10 +119,69 @@ public class MainWrapper {
     System.out.println(notResult);
     // 복붙하는 이유 : 오타를 줄이려고 (편할려고x).
     
+    //Short Circuit Evaluation
+    // 1. 논리 AND : 결과가 false인 조건이 나타나면 더 이상 조건을 체크하지 않는다. 최종 결과가 false로 정해졌기 때문이다.
+    // 2. 논리 OR  : 결과가 ture인 조건이 나타나지 않으면 더 이상 조건을 체크하지 않는다. 최종 결과가 true로 정해졌기 때문이다.
+    int i = 10;
+    int j = 10;
+    
+    boolean andSceResult = (++i == 10) && (++j == 10);  //논리 AND로 첫 번째 조건에서 false가 나와서 더이상 체크 x
+    System.out.println(andSceResult);  //false
+    System.out.println(i);             // 11
+    System.out.println(j);             // 10
+    
+    boolean orSceResult = (j++ == 10) || (i++ == 10); //논리 OR로 첫 번째에서 이미 true가 나왔기 때문에 더이상 체크 x , 결과 : true
+    System.out.println(orSceResult);   //true
+    System.out.println(i);             // 11
+    System.out.println(j);             // 11
+    
   }
 
+  // ex05 메소드 정의
+  public static void ex05() {
+    
+    // 조건 연산자(3개의 항을 사용하므로 삼항 연산이라고도 한다.)
+    // 조건식 ? true인 경우 결과 : false인 경우 결과
+    
+    int score = 100;
+    
+    String result = (score >= 60) ? "합격" : "불합격";
+      System.out.println(result);
+    
+    
+  }
+  
+  // ex06 메소드 정의
+  public static void ex06() {
+    
+    // 문자열 연결
+    String str1 = "구디" + "아카데미";     // 구디아카데미
+    String str2 = 4 + "달라";             //숫자+문자 연결가능
+    String str3 = 1 + 2 + "번지";         //' 3번지 ' = 왼쪽에서 오른쪽으로 계산하기 때문에 1+2 를 먼저함, 후에 문자열과 합침.
+              
+    
+    System.out.println(str1);
+    System.out.println(str2);
+    System.out.println(str3);
+    
+    // 정수 -> 문자열
+    // 실수 -> 문자열
+    String str4 = 100 + "";    // 빈 문자열("")을 더해주면 숫자가 문자열이 된다.
+    String str5 = 1.5 + "";    // 빈 문자열("")을 더해주면 숫자가 문자열이 된다.
+      
+    System.out.println(str4);
+    System.out.println(str5);
+    
+    //참고. 문자열로 변환하는 메소드가 있다.
+    String str6 = String.valueOf(100);    //잘 안 쓸 뿐 있다.
+    
+    System.out.println(str6);
+    
+  }
+  
   public static void main(String[] args) {
     //항상 메인메소드 부터 실행됨.
+    //메소드는 항상 만든다고 실행되지 않음 -> 메인메소드에서 호출해야 작동.
     // ex01 메소드 실행 부탁(메소드 호출)
     // ex01();
     
@@ -133,7 +192,14 @@ public class MainWrapper {
     // ex03();
     
     // ex04 메소드 호출
-    ex04();
+    // ex04();
+    
+    // ex05 메소드 호출
+    // ex05();
+    
+    // ex06 메소드 호출
+    ex06();
+    
     //먼저 적은 메소드순서대로 실행된다.(ex01 이 먼저, ex02가 나중).
     
   }
