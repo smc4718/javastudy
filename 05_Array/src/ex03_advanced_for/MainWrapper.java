@@ -50,7 +50,7 @@ public class MainWrapper {
     // 2차원 배열의 advanced-for문
     public static void ex03() {
       
-      // 2차원 배열의 초기화  (웹개발에서 2차원배열을 사용할 일은 거의 없다. 오늘 이후로 볼 일 없다.)
+      // 2차원 배열의 초기화  (웹개발에서 2차원배열을 사용할 일은 거의 없다.웹개발에선 중요하지 않다. 오늘 이후로 볼 일 없다.)
       int[][] a = {         //(2차원 배열은 '게임'에서 필수로 사용.)
           {10, 20},
           {30, 40},
@@ -58,8 +58,8 @@ public class MainWrapper {
       };
       
       // advanced-for
-      //for(배열요소 : 배열) { 
-      // }
+      //for(배열요소 : 배열) {
+      // }  // 배열의 모든 요소를 배열요소로 복사해서 보내라.
         for(int[] b : a) {   // a의 첫 번째 요소는 1차원배열이기에 1차원으로 int[]로 잡아준 것.
           for(int number : b) {
             System.out.print(String.format("%4d", number));

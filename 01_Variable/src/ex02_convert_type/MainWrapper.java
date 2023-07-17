@@ -10,11 +10,11 @@ public class MainWrapper {
      * 2. 정수 -> 실수
      */
     
-    byte num1 = 127;   //byte는 ' -120 ~ 127 ' 가능.
-    int  num2 = num1;  // 1바이트 크기를 가진 num1을 4바이트 크기로 자동 변환
+    byte num1 = 127;                //byte는 ' -120 ~ 127 ' 가능.
+    int  num2 = num1;               // 1바이트 크기를 가진 num1을 4바이트 크기로 자동 변환
     System.out.println(num2);
     
-    double addResult = 1.5 + 5; // 5를 5.0으로 자동 변환
+    double addResult = 1.5 + 5;     // 5를 5.0으로 자동 변환
     System.out.println(addResult);
     
     /*
@@ -24,13 +24,13 @@ public class MainWrapper {
      */
     
     int  bigNum = 256;
-    byte smallNum = (byte)bigNum;  // 4바이트 bigNum을 강제로 1바이트로 변환/
-    System.out.println(smallNum);  // casting 을 할 때는 원본이 훼손될 수 있다. (자릿수 잘려나감)
-    //casting 은 자바가 무조건 하니까 결과가 이상해진다.
+    byte smallNum = (byte)bigNum;   // 4바이트 bigNum을 강제로 1바이트로 변환/
+    System.out.println(smallNum);   // casting 을 할 때는 원본이 훼손될 수 있다. (자릿수 잘려나감)
+                                    //casting 은 자바가 무조건 하니까 결과가 이상해진다.
     
     double pct = 0.5;
     int   iPct = (int)pct;
-    System.out.println(iPct);   // 실수를 강제로 정수로 변환(소수점 잘려나간다.)
+    System.out.println(iPct);       // 실수를 강제로 정수로 변환(소수점 잘려나간다.)
     
     
     /*
@@ -40,6 +40,7 @@ public class MainWrapper {
      */
    
     //문자열은 ' ' , " " 구분 잘하기.
+    
     String strScore = "100";
        int score    = Integer.parseInt(strScore);
     
