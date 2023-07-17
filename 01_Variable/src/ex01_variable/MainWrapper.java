@@ -65,17 +65,7 @@ public class MainWrapper {
     // reference type : 참조타입
     String name = "tom";
     System.out.println(name);         //name에는 tom이 아니라 톰의 주소값이 저장되어 있다.
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
   }
   
