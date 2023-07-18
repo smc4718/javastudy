@@ -81,7 +81,24 @@ public class MainWrapper {
         {3, 5},  // 4층
         {4, 4}   // 5층
     };
+    /*
+    int total = 0;
+    total = total = apt[0][0];
+    total = total + apt[0][1];
+    System.out.println("1층: " + total + "명");
     
+    total = 0;
+    total = total + apt[1][0];
+    total = total + apt[1][1];
+    System.out.println("2층: " + total + "명");
+    */
+    for(int i=0; i<apt.length; i++) {
+      int total = 0;
+      for(int j=0; j<apt[i].length; j++) {
+        total = total + apt[i][j];  // total += apt[i][j];
+      }
+      System.out.println((i + 1) + "층: " + total + "명");
+    }
   }
   
   public static void ex04() {
@@ -99,8 +116,17 @@ public class MainWrapper {
         {"음악", "국어", "윤리"},
         {"수학", "영어", "체육", "과학"}
     };
+    for(int i=0; i<timeTable.length; i++) {
+      System.out.print(weekname[i] + ":");
+      for(int j=0; j<timeTable[i].length; j++) {
+        System.out.print(String.format("%3s", timeTable[i][j]));
+                              // %d는 정수에서 쓰는 것, %s는 문자열에서 씀..
+       }
+      System.out.println();
+      }
+    }
     
-  }
+  
 
   public static void ex05() {
     // 2차원 배열 90도 회전하기(배열 a의 90도 회전된 모습을 배열 b에 저장한 뒤, 배열 a가 배열 b를 그대로 가져가기)
@@ -123,10 +149,39 @@ public class MainWrapper {
         {0, 0, 1, 0, 0}
     };
     int[][] b = new int[5][5];
+    //    a    -->   b
+    //  [0][0]     [0][4]
+    //  [0][1]     [1][4]
+    //  [0][2]     [2][4]
+    //  [0][3]     [3][4]
+    //  [0][4]     [4][4]
+    //  두번째 줄
+    //  [1][0]     [0][3]
+    //  [1][1]     [1][3]
+    //  [1][2]     [2][3]
+    //  [1][3]     [3][3]
+    //  [1][4]     [4][3]
+    //-----------------------
+    //  [i][j] --> [j][4-i]
+    for(int i=0; i<a.length; i++) {
+      for(int j=0; j<a[i].length; j++) {
+        b[j][4-i] = a[i][j];   // a의 값을 b로 보내라.
+      }
+    }
+    a = b;  // b가 90도로 돌고 나서, a값으로 다시 보내주면 누운 T자가 된다. 기존 a값은 메모리 누수.
+    for(int i=0; i<a.length; i++) {
+      for(int j=0; j<a[i].length; j++) {
+        System.out.print(a[i][j]);
+      }
+      System.out.println();
+    }
     
   }
   
   public static void main(String[] args) {
-    ex02();
+    //ex02();
+    //ex03();
+    //ex04();
+    ex05();
   }
 }

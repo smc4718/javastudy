@@ -104,7 +104,7 @@ public class MainWrapper {
     int[] a = {10, 20, 30};
     for(int i=0; i<a.length; i++) {   //i에 데이터타입 잊지말기.
       System.out.println(a[i]);
-    }
+    } 
   } 
   
   public static void ex05() {
