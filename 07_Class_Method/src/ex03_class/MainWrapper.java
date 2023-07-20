@@ -11,8 +11,8 @@ public class MainWrapper {
     //  타입  객체이름
     Calculator myCalc;
     
-    // Calculator 객체 생성
-    myCalc = new Calculator();
+    // Calculator 객체 생성 (객체 == 인스턴스:메모리에 로드 된 객체를 '인스턴스'라고 함)
+    myCalc = new Calculator();  //인스턴스화 : 메모리에 로드되었다.
     // ↑ 이것이 손으로 만질 수 있는 실제 계산기.
     // 우리가 위처럼 객체를 안 만들면, 자바가 만들어서 씁니다.
     // 우리가 위처럼 만들면, 우리가 만든 걸 쓴다.
