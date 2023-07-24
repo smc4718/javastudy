@@ -1,4 +1,4 @@
-package ex;
+ 4package ex;
 
 public class MainWrapper {
 
