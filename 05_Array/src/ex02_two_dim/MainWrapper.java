@@ -83,7 +83,7 @@ public class MainWrapper {
   
   public static void ex04() {
     
-    // 2차원 배열의 쵝화
+    // 2차원 배열의 초기화
     int[][] a= {
         {10, 20},
         {30, 40},
