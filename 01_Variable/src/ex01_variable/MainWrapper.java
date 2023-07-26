@@ -66,6 +66,18 @@ public class MainWrapper {
     String name = "tom";
     System.out.println(name);         //name에는 tom이 아니라 톰의 주소값이 저장되어 있다.
 
+    /*   [기본타입]       [참조타입]
+     * primitive type / reference type
+     * 
+     *    boolean    /   Boolean
+     *    char        /   Character
+     *    byte       /    Byte
+     *    int        /    Integer
+     *    long       /    Long
+     *    double     /    Double
+     *    
+     */   
+    
     
   }
   
