@@ -1,5 +1,5 @@
 package mycafe;
 
-public interface Coffee {
+public interface coffee {
 
 }
