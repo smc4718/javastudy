@@ -10,8 +10,5 @@ public class MainWrapper {
     
     BinaryNumber bn = new BinaryNumber(32);
     System.out.println(bn);  // 100000
-
-    
-   
   }
 }
