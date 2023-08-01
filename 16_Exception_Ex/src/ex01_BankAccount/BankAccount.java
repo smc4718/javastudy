@@ -34,9 +34,7 @@ public class BankAccount {
     }
     balance += money;
     }  // 대신 Exception e 를 써도 됨.
-      System.out.println(e.getMessage());
     
-  }
   
   /**
    * 출금 메소드<br>
@@ -56,10 +54,9 @@ public class BankAccount {
     balance -= money;
       retVal = money;
     }
+    return retVal;
   } 
-    System.out.println(e.getMessage());
-  return retVal;
-  }    
+      
  
 
 // try - catch 가 없으면, 내가 예외 처리를 안하고 나를 호출하는 곳에서 예외 처리 하도록 전달하겠다.

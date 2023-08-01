@@ -40,6 +40,12 @@ private int money;  // 빵집에 돈이 얼마 있는가?
    */
   public BreadChange sell(int count, int money) {
     
+    // 0 이하의 빵을 요청했다.
+    if(count <= 0) {
+      System.out.println("판매 불가합니다.(0이하의 빵을 요청하다.)");
+      return null;
+    }
+    
     // 빵이 부족하다
     if(this.count < count) {
       System.out.println("판매 불가합니다.(빵이 부족하다.)");
