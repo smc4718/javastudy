@@ -2,6 +2,7 @@ package ex01_File;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 public class MainWrapper {
   
@@ -29,13 +30,13 @@ public class MainWrapper {
     File dir;
     
     // File 객체 생성 (아래 구문이 공식적으로 윈도우 & 리눅스에서 모두 돌아간다.
-    dir = new File("C:" + sep + "storage");  // C드라이브 아래에 있는 storage 디렉토리
+    dir = new File("C:" + sep + "storage");  // C드라이브 아래에 있는 storage 디렉터리
   
-    // C:\storage 디렉토리가 없으면 만들고, 있으면 지우기
+    // C:\storage 디렉터리가 없으면 만들고, 있으면 지우기
     if(dir.exists()) {
      // dir.deleteOnExit();  // Java 실행이 끝나면 지운다.
      dir.delete();  // 지금 당장 지운다.
-     System.out.println("C:\\storage 디렉토리 삭제 완료");
+     System.out.println("C:\\storage 디렉터리 삭제 완료");
     } else {
       dir.mkdirs(); // 폴더 안에 폴더 만들기 가능. (mk : make  , dir : directory)
       System.out.println("C:\\storage 디렉터리 생성 완료");
@@ -75,8 +76,65 @@ public class MainWrapper {
     }
   }
   
+  public static void ex03() {
+    
+    // 파일, 디렉터리 정보 확인
+    // listFiles()   : 모든 File 객체를 저장한 File[] 반환
+    // getName()     : 이름 반환
+    // getParent()   : 저장된 디렉터리 반환
+    // getPath()     : getParent() + getName() 
+    // lastModified  : 최종수정일을 long 타입으로 반환 (Timestamp 로 반환한다는 뜻)
+    // length()      : 크기를 long 타입의 바이트 단위로 반환
+    // isDirectory() : 디렉터리이면 true 반환
+    // isFile()      : 파일이면 true 반환
+    
+    // 디렉터리를 File 객체로 생성
+    File dir = new File("C:/Program Files/Java/jdk-11");
+    
+    // 디렉터리에 있는 모든 File 객체(파일, 디렉터리) 가져오기
+    File[] files = dir.listFiles();
+    
+    // 디렉터리에 있는 모든 File 객체의 정보 확인하기
+    for(int i = 0; i < files.length; i++) {
+      
+      // 개별 File 객체
+      File file = files[i];
+      
+      // 출력 결과 StringBuilder 생성
+      StringBuilder sb = new StringBuilder();
+      
+      // File 객체 이름
+      sb.append(String.format("%-15s", file.getName()));
+      
+      // File 객체 최종수정일 ( long 타입의 날짜는 Timestamp 이다.)
+      long lastModified = file.lastModified();
+      String strLastModified = new SimpleDateFormat("yyyy-MM-dd a h:mm").format(lastModified);
+                                                  // a는 am  |  'H' 는 24시간제, 'h' 는 12시간제.                 
+      sb.append(String.format("%-20s", strLastModified));
+      
+      // File 객체 유형(파일, 디렉터리)
+      String kind = file.isDirectory() ? "파일 폴더" : "파일";
+      sb.append(String.format("%-10s", kind));
+      
+      // File 객체 크기
+      long size = file.isFile() ? file.length() : 0;  // 파일은 바이트 단위로 크기가 저장, 디렉터리는 크기가 없으므로 0으로 저장
+      long kbSize = (size / 1024) + (size % 1024 != 0 ? 1 : 0);
+      if(size != 0) {
+      sb.append(String.format("%10s", kbSize + "KB"));
+      }
+      
+      // StringBuilder 객체를 String으로 변환
+      String str = sb.toString();
+      
+      // 출력
+      System.out.println(str);
+      
+    }
+        
+        
+  }
   public static void main(String[] args) {
-    ex02();
+    ex03();
     
     
   }
