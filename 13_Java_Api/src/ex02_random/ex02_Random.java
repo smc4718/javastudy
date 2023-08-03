@@ -26,12 +26,6 @@ public class ex02_Random {
     System.out.println(randomNumber1);
     System.out.println(randomNumber2);
     System.out.println(randomNumber3);
-    
-    
-    
-    
-    
-    
   }
 
 }

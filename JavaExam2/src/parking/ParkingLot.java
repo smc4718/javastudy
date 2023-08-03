@@ -20,7 +20,7 @@ public class ParkingLot {
       System.out.println("만차입니다. 더 이상 차량 등록이 불가능합니다.");
       return;
     }
-    
+
     System.out.println("차량번호 입력 >>>");
      String carNo = sc.next();
     System.out.println("모델 입력 >>>");
@@ -50,8 +50,7 @@ public class ParkingLot {
      }
     System.out.println("차량번호 " + carNo + " 차량이 존재하지 않습니다.");
     }
-  
-  
+ 
   public void searchCar() {
     if(cars.isEmpty()) {
       System.out.println("현재 주차장에 등록된 차량이 없습니다.");
@@ -69,7 +68,7 @@ public class ParkingLot {
     }
     System.out.println("차량번호 " + carNo + " 차량이 존재하지 않습니다.");
   }
-  
+
   public void printAllCars() {
    System.out.println(name + " 차량 목록");
    int totalCars = cars.size();
