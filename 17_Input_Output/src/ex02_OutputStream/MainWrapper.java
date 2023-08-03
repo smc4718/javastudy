@@ -1,6 +1,7 @@
 package ex02_OutputStream;
 
 import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -158,12 +159,47 @@ public class MainWrapper {
     /*
      * java.io.DataOutputStream 클래스
      * 1. int, double, String 등의 변수를 그대로 출력하는 출력스트림
-     * 
+     * 2. 보조스트림이므로 메인스트림과 함께 사용한다.
      */
+    
+    File dir = new File("C:/storage");
+    File file = new File(dir, "ex04.dat");
+    
+    DataOutputStream dout = null;
+    
+    try {
+      
+    //  데이터출력스트림 생성 (반드시 예외 처리가 필요한 코드) 
+    dout = new DataOutputStream(new FileOutputStream(file));
+      
+    // 출력할 데이터(파일로 보낼 데이터)
+    String name = "tom";
+    int age = 50;
+    double height = 180.5;
+    String school = "가산대학교";
+   
+    // 출력(파일로 데이터 보내기)
+    dout.writeChars(name);  //위에 출력데이터들을 문자열로 저장해주겠다.
+    dout.write(age);
+    dout.writeDouble(height);
+    dout.writeUTF(school);  // write 종류별로 쓸 수 있게 만들어 둔 게 DataOutputStream.
+    
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if(dout != null) {
+          dout.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    } 
+    System.out.println(file.getPath() + "파일 크기 : " + file.length() + "바이트");
     
   }
   
   public static void main(String[] args) {
-   ex03();
+   ex04();
   }
 }
