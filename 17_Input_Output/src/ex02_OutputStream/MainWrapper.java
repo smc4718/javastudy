@@ -181,7 +181,7 @@ public class MainWrapper {
    
     // 출력(파일로 데이터 보내기)
     dout.writeChars(name);  //위에 출력데이터들을 문자열로 저장해주겠다.
-    dout.write(age);
+    dout.writeInt(age);
     dout.writeDouble(height);
     dout.writeUTF(school);  // write 종류별로 쓸 수 있게 만들어 둔 게 DataOutputStream.
     
@@ -196,8 +196,7 @@ public class MainWrapper {
         e.printStackTrace();
       }
     } 
-    System.out.println(file.getPath() + "파일 크기 : " + file.length() + "바이트");
-    
+    System.out.println(file.getPath() + " 파일 크기 : " + file.length() + "바이트");
   }
   
   public static void ex05() {
@@ -247,6 +246,6 @@ public class MainWrapper {
   }
   
   public static void main(String[] args) {
-   ex05();
+   ex04();
   }
 }
