@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 
 public class MainWrapper {
@@ -199,7 +200,53 @@ public class MainWrapper {
     
   }
   
+  public static void ex05() {
+    
+    /*
+     * java.io.ObjectOutputStream 클래스
+     * 1. 객체를 그대로 출력하는 출력스트림이다.
+     * 객체는 통째로 보내는 게 불가능해서, 직렬화 과정을 통해서 보내줘야 한다(객체를 분리해서 잘게 쪼개서 보내야 한다)
+     * (객체:안 자른 김밥 -> 직렬화:김밥을 잘라서 하나씩 보냄)
+     * 2. 직렬화(serializable)된 객체를 보낼 수 있다.
+     */
+  
+    File dir = new File("C:/storage");
+    File file = new File(dir, "ex05.dat");
+    
+    ObjectOutputStream oout = null;
+    
+    try {
+      
+    //  객체출력스트림 생성 (반드시 예외 처리가 필요한 코드) 
+    oout = new ObjectOutputStream(new FileOutputStream(file));
+      
+    // 출력할 데이터(파일로 보낼 데이터)
+    String name = "tom";
+    int age = 50;
+    double height = 180.5;
+    String school = "가산대학교";
+    Student student = new Student(name, age, height, school);
+    
+    
+    // 출력(파일로 데이터 보내기)
+    oout.writeObject(student);
+    
+    
+    } catch (IOException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if(oout != null) {
+          oout.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    } 
+    System.out.println(file.getPath() + "파일 크기 : " + file.length() + "바이트");
+  }
+  
   public static void main(String[] args) {
-   ex04();
+   ex05();
   }
 }
