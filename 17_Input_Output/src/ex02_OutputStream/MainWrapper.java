@@ -42,6 +42,9 @@ public class MainWrapper {
     
     // 출력스트림이 file 로 출력할 것이다. (file = ex01.dat);
     // 파일출력스트림 생성 (반드시 예외 처리가 필요한 코드)
+    
+    // 1. 생성모드 : 언제나 새로 만든다. (덮어쓰기)       new FileOutputStream(file)
+    // 2. 추가모드 : 새로 만들거나, 기존 파일에 추가한다. new FileoutputStream(file, true)  
     fout = new FileOutputStream(file);
     
     // 출력할 데이터 (파일로 보낼 데이터)
@@ -54,6 +57,10 @@ public class MainWrapper {
     // 출력 (파일로 데이터 보내기) 
     fout.write(c);
     fout.write(b);
+    
+    // file 객체 이름 가져오는 법 : .getName  |  getParent : 폴더 가져오기 | getPath() : 폴더,파일 다 가져옴.
+    System.out.println(file.getPath() + " 파일 크기 : " + file.length() + "바이트");    
+    
   } catch (IOException e) {
     e.printStackTrace();   // 예외가 어디서 발생하는 알 수 있게 printStackTrace 써줌.
   } finally {
@@ -66,8 +73,6 @@ public class MainWrapper {
     }
     // 예외처리가 필요한 아이들은 try 안에 들어가 있어야 한다.(예외 처리가 필요하면 Unhandled exception type IOException 뜸)
     
-    // file 객체 이름 가져오는 법 : .getName  |  getParent : 폴더 가져오기 | getPath() : 폴더,파일 다 가져옴.
-    System.out.println(file.getPath() + " 파일 크기 : " + file.length() + "바이트");    
   }     
   }
   
