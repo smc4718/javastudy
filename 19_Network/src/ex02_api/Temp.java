@@ -46,7 +46,7 @@ public class Temp {
     
   private static String get(String spec, Map<String, String> requestHeaders) {
     
-    HttpsURLConnection con = connect(spec);
+    HttpURLConnection con = connect(spec);
     String result = null;
     
     try {
