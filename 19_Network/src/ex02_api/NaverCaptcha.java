@@ -133,8 +133,7 @@ public class NaverCaptcha {
     }
     return key;
   }
-  
-  
+
   private static void validInput() {
     
     URL url = null;
@@ -194,8 +193,8 @@ public class NaverCaptcha {
     }
    
   }
-  
+ 
   public static void main(String[] args) {
-    validInput();
+    
   }
 }
