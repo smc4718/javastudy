@@ -1,11 +1,12 @@
-package ex02_api;
+package my_practice;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-public class exexex {
+public class ex_writer {
 
   
   public static void ex01() {
@@ -47,9 +48,41 @@ public class exexex {
   
   }
   
-  
+  public static void ex02() {
+    
+    File dir = new File("C:/storage");
+    File file = new File(dir, "ex.Writer");
+    
+    PrintWriter pw = null;
+    
+    try {
+      
+      pw = new PrintWriter(file);
+      
+      String fruit  = "Water_melon";
+      String fruit2 = "Peach";
+      
+      pw.println(fruit);
+      pw.println(fruit2);
+      
+      
+    } catch (Exception e) {
+       e.printStackTrace();    
+      } finally {
+        try {
+          if(pw != null) {
+            pw.close();
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    System.out.println(file.getPath() + " 파일 생성 완료 " + file.length() + " 바이트 크기");
+    
+  }
+
   public static void main(String[] args) {
-   ex01();
+   ex02();
       
 
   }
