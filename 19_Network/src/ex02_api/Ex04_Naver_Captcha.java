@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 // 이번에는 main 에서 호출해서 출력값을 보기 때문에, 메소드들에 static 붙인 것.(메소드에 static 이 있으니까.)
 
-public class NaverCaptcha {
+public class Ex04_Naver_Captcha {
 
   // 필드로 잡아 놓으면 변수를 여러 번 안 쓰고 한 번에 끌어다 쓸 수 있다.
   private static final String CLIENT_ID = "0ZmDGyDBmv6fI7U_AB5y";

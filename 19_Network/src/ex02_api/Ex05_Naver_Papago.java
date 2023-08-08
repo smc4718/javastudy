@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 
-public class NaverPapago {
+public class Ex05_Naver_Papago {
 
   public static void ex01() {
     
