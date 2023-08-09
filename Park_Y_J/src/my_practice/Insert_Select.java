@@ -2,6 +2,7 @@ package my_practice;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class Insert_Select {
@@ -23,6 +24,8 @@ public class Insert_Select {
     Connection con = null;
     
     PreparedStatement ps = null;
+    
+    ResultSet rs = null;
     
     try {
       
