@@ -16,7 +16,7 @@ import controller.ContactController;
 //메인은 컨트롤러를 호출(사용)한다.  
 
 public class ContactMain {
-  
+
   public static void main(String[] args) {
     
     ContactController contactController = new ContactController();
@@ -25,7 +25,7 @@ public class ContactMain {
       
       String choice = JOptionPane.showInputDialog("1.삽입\n2.수정\n3.삭제\n4.전체조회\n5.상세조회\n0.종료\n원하는 작업을 입력하세요.");
       View view = null;
-      
+
       switch(choice) {
       case "1":
         view = new InsertView();
@@ -42,19 +42,23 @@ public class ContactMain {
       case "5":
         view = new DetailView();
         break;
-      case "0": JOptionPane.showMessageDialog(null, "연락처 프로그램을 종료합니다.");
+      case "0":
+        JOptionPane.showMessageDialog(null, "연락처 프로그램을 종료합니다.");
         return;
       default:
         JOptionPane.showMessageDialog(null, "잘못된 입력입니다. 다시 선택하세요.");
       }
-      
+
       Map<String, Object> map = null;
       if(view != null) {
-      map = view.display();
+        map = view.display();
       }
+      
+      String message = contactController.request(choice, map);
+      JOptionPane.showMessageDialog(null, message);
+      
+    }
     
-    String message = contactController.request(choice, map);
-    JOptionPane.showMessageDialog(null, message); // 대화상자로 메시지 출력해주는 것.
   }
- }
+  
 }

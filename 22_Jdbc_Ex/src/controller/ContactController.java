@@ -7,13 +7,13 @@ import dto.ContactDto;
 import service.ContactService;
 import service.ContactServiceImpl;
 
-public class ContactController {
-  
 //순서(중요) : ContactView -> ContactController -> ContactService -> ContactDao -> DB
 // 컨트롤러는 서비스를 호출(사용)한다.  
-  
-  ContactService contactService = new ContactServiceImpl();
-  
+
+public class ContactController {
+
+  private ContactService contactService = new ContactServiceImpl();
+
   /**
    * 요청 처리 메소드<br>
    * @param choice 1,2,3,4,5 중 하나
@@ -23,10 +23,9 @@ public class ContactController {
    *            choice == 3 : contact_no
    *            choice == 4 : null
    *            choice == 5 : contact_no
-   *            
-   * @return message 처리 결과 메시지            
+   * @return message 처리 결과 메시지
    */
- public String request(String choice, Map<String, Object> map) {
+  public String request(String choice, Map<String, Object> map) {
     
     System.out.println("Controller::" + map);
     
@@ -64,4 +63,5 @@ public class ContactController {
     return message;
     
   }
+  
 }

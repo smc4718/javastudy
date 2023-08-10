@@ -10,8 +10,8 @@ public class ListView implements View {
   public Map<String, Object> display() {
     
     JOptionPane.showMessageDialog(null, "전체 연락처를 가져옵니다.");
-    
     return null;
+    
   }
 
 }
