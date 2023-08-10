@@ -92,14 +92,14 @@ public class ContactDao {
    * @param contactDto 삽입할 연락처 정보(name, tel, email, address)
    * @return insertCount 삽입된 행(Row)의 개수, 1이면 삽입 성공, 0이면 삽입 실패
    */
-  public int insert(ContactDto contactDto) {
+public int insert(ContactDto contactDto) {
     
     int insertCount = 0;
     
     try {
       
       con = getConnection();
-      // 쿼리문은 항상 SQL파일에서 돌려보고 돌아가면 이곳에 복붙해서 적기.
+      // 쿼리문은 항상 SQL 파일에서 돌려보고 되면 이곳에 복붙하기.
       String sql = "INSERT INTO CONTACT_T(CONTACT_NO, NAME, TEL, EMAIL, ADDRESS, CREATED_AT) VALUES(CONTACT_SEQ.NEXTVAL, ?, ?, ?, ?, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'))";
       ps = con.prepareStatement(sql);
       ps.setString(1, contactDto.getName());
@@ -108,10 +108,10 @@ public class ContactDao {
       ps.setString(4, contactDto.getAddress());
       insertCount = ps.executeUpdate();
       
-    }catch (Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     } finally {
-        close();
+      close();
     }
     
     return insertCount;
@@ -124,6 +124,8 @@ public class ContactDao {
    * @return updateCount 수정된 행(Row)의 개수, 1이면 수정 성공, 0이면 수정 실패.
    */
   public int update(ContactDto contactDto) {
+    
+    System.out.println("Dao::" + contactDto);
     
     int updateCount = 0;
     
@@ -154,7 +156,9 @@ public class ContactDao {
    * @param contact_no 삭제할 연락처 번호
    * @return deleteCount 삭제된 행(Row)의 개수, 1이면 삭제 성공, 0이면 삭제 실패
    */
-  public int delete(ContactDto contactDto) {
+ public int delete(int contact_no) {
+   
+   System.out.println("Dao::" + contact_no);
     
     int deleteCount = 0;
     
@@ -163,16 +167,16 @@ public class ContactDao {
       con = getConnection();
       String sql = "DELETE FROM CONTACT_T WHERE CONTACT_NO = ?";
       ps = con.prepareStatement(sql);
-      ps.setInt(1, contactDto.getContact_no());
+      ps.setInt(1, contact_no);
       deleteCount = ps.executeUpdate();
       
-    }catch (Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
     } finally {
       close();
     }
-    return deleteCount;
     
+    return deleteCount;
     
   }
 
@@ -222,6 +226,8 @@ public class ContactDao {
    * @return contactDto 조회된 연락처 정보, 조회된 연락처가 없으면 null 반환
    */
   public ContactDto selectContactByNo(int contact_no) {
+    
+    System.out.println("Dao::" + contact_no);
     
     ContactDto contactDto = null;
     

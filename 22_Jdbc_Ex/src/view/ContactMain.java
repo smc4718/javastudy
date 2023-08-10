@@ -11,7 +11,9 @@ import controller.ContactController;
 
 // ContactView 는 중요x (나중에 웹화면으로 입력은 대체됨)
 
+//★ ↓  항상 처리가 끝나면 return 값을 통해 순서대로 넘어가거나, 순서대로 되돌아 온다.
 // 순서(중요) : ContactView -> ContactController -> ContactService -> ContactDao -> DB
+//메인은 컨트롤러를 호출(사용)한다.  
 
 public class ContactMain {
   
@@ -51,7 +53,8 @@ public class ContactMain {
       map = view.display();
       }
     
-    contactController.request(choice, map);
+    String message = contactController.request(choice, map);
+    JOptionPane.showMessageDialog(null, message); // 대화상자로 메시지 출력해주는 것.
   }
  }
 }

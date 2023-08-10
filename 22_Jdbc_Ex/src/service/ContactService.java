@@ -6,6 +6,7 @@ import java.util.Map;
 import dto.ContactDto;
 
 //순서(중요) : ContactView -> ContactController -> ContactService -> ContactDao -> DB
+//서비스는 다오를 호출(사용)한다.
 
 public interface ContactService {
   int insert(Map<String, Object> map);
