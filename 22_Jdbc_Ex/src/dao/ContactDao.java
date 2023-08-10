@@ -15,6 +15,9 @@ import dto.ContactDto;
 // Singleton Pattern은 개념만 알고 있으면 됨.(중요x)
 
 // CRUD 하나씩 다 함 : create, insert, update, delete
+
+//순서(중요) : ContactView -> ContactController -> ContactService -> ContactDao -> DB
+
 /*
  * Dao
  * 1. Database Access Object
@@ -168,7 +171,7 @@ public class ContactDao {
     } finally {
       close();
     }
-    return deleteCount;`
+    return deleteCount;
     
     
   }
