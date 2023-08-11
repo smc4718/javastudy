@@ -48,7 +48,7 @@ public class NaverApiSearchBook {
                 File logFile = new File("C:/download/log/log.txt");
                 logFile.getParentFile().mkdirs();
                 PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
-                writer.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + ": " + e.getMessage());
+                writer.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a HH:mm:ss")) + ": " + e.getMessage());
                 writer.close();
             } catch (IOException ioe) {
                 ioe.printStackTrace();
@@ -108,7 +108,7 @@ public class NaverApiSearchBook {
           String clazz = e.getClass().getName();
           
 
-          File dir = new File("C:/storage");
+          File dir = new File("C:/download/log");
           if(dir.exists() == false) {
             dir.mkdirs();
           }
