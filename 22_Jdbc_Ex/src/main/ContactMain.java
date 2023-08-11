@@ -1,4 +1,4 @@
-package view;
+package main;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,12 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 
 import controller.ContactController;
+import view.DeleteView;
+import view.DetailView;
+import view.InsertView;
+import view.ListView;
+import view.UpdateView;
+import view.View;
 
 // CRUD는 반복숙달 필수(기초역량)
 
@@ -49,14 +55,12 @@ public class ContactMain {
         JOptionPane.showMessageDialog(null, "잘못된 입력입니다. 다시 선택하세요.");
       }
 
-      Map<String, Object> map = null;
+      
       if(view != null) {
-        map = view.display();
-      }
-      
-      String message = contactController.request(choice, map);
-      JOptionPane.showMessageDialog(null, message);
-      
+        Map<String, Object> map = view.display();
+        String message = contactController.request(choice, map);
+        JOptionPane.showMessageDialog(null, message);
+      }      
     }
     
   }
